@@ -1,6 +1,6 @@
 import { Pressable, Text, View, StyleSheet } from 'react-native';
 import { GlobalStyles } from '../../constants/styles';
-import getFormattedDate from '../../util/date';
+import { getFormattedDate } from '../../util/date'; //recreate error here by removing {}
 import { useNavigation } from '@react-navigation/native';
 
 export default function ExpenseItem({ id, description, cost, date }) {

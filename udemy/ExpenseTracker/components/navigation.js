@@ -7,6 +7,7 @@ import AllExpenses from '../screens/AllExpenses';
 import { GlobalStyles } from '../constants/styles';
 import { Ionicons } from '@expo/vector-icons';
 import IconButton from './UI/IconButton';
+import ExpensesContextProvider from '../store/expenses-context';
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -60,26 +61,28 @@ function ExpensesOverview() {
 // File name became buggy when i created a lower case file, then renamed it, now i get an annoying useless error if i change it to uppercase and try to import it elsewhere
 export default function Navigation() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
-          headerTintColor: 'white',
-        }}
-      >
-        <Stack.Screen
-          name="ExpensesOverview"
-          component={ExpensesOverview}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ManageExpense"
-          component={ManageExpense}
-          options={{
-            presentation: 'modal',
+    <ExpensesContextProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+            headerTintColor: 'white',
           }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+        >
+          <Stack.Screen
+            name="ExpensesOverview"
+            component={ExpensesOverview}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="ManageExpense"
+            component={ManageExpense}
+            options={{
+              presentation: 'modal',
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ExpensesContextProvider>
   );
 }
