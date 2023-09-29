@@ -12,6 +12,10 @@ export default function ManageExpense({ route, navigation }) {
   const editedExpenseId = route.params?.id;
   const isEditing = !!editedExpenseId;
 
+  const editedExpense = expensesContext.expenses.find(
+    (expense) => expense.id === editedExpenseId
+  );
+
   useLayoutEffect(() => {
     navigation.setOptions({
       title: isEditing ? 'Edit expense' : 'Add expense',
@@ -27,19 +31,11 @@ export default function ManageExpense({ route, navigation }) {
     navigation.goBack();
   }
 
-  function confirm() {
+  function confirm(expenseData) {
     if (isEditing) {
-      expensesContext.updateExpense(editedExpenseId, {
-        description: 'Test!!',
-        cost: 29.99,
-        date: new Date('2022-05-20'),
-      });
+      expensesContext.updateExpense(editedExpenseId, expenseData);
     } else {
-      expensesContext.addExpense({
-        description: 'Test',
-        cost: 19.99,
-        date: new Date('2022-05-19'),
-      });
+      expensesContext.addExpense(expenseData);
     }
 
     navigation.goBack();
@@ -47,15 +43,12 @@ export default function ManageExpense({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <ExpenseForm />
-      <View style={styles.buttons}>
-        <Button style={styles.button} mode="flat" onPress={cancel}>
-          Cancel
-        </Button>
-        <Button style={styles.button} onPress={confirm}>
-          {isEditing ? 'Update' : 'Add'}
-        </Button>
-      </View>
+      <ExpenseForm
+        submitButtonLabel={isEditing ? 'Update' : 'Add'}
+        onCancel={cancel}
+        onSubmit={confirm}
+        editedExpense={editedExpense}
+      />
       {isEditing && (
         <View style={styles.deleteContainer}>
           <IconButton
@@ -82,14 +75,5 @@ const styles = StyleSheet.create({
     borderTopWidth: 2,
     borderTopColor: GlobalStyles.colors.primary200,
     alignItems: 'center',
-  },
-  buttons: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  button: {
-    minWidth: 120,
-    marginHorizontal: 8,
   },
 });

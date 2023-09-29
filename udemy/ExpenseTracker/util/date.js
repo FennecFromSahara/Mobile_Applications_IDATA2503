@@ -1,9 +1,12 @@
-export function getFormattedDate(date) {
-  const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const day = date.getDate().toString().padStart(2, '0');
+// export function getFormattedDate(date) {
+//   const year = date.getFullYear();
+//   const month = (date.getMonth() + 1).toString().padStart(2, '0');
+//   const day = date.getDate().toString().padStart(2, '0');
 
-  return `${year}-${month}-${day}`;
+//   return `${year}-${month}-${day}`;
+// }
+export function getFormattedDate(date) {
+  return date.toISOString().slice(0, 10);
 }
 
 export function getDateMinusDays(date, days) {

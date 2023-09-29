@@ -22,6 +22,7 @@ export default function ExpenseItem({ id, description, cost, date }) {
           <Text style={[styles.textBase, styles.description]}>
             {description}
           </Text>
+          {/* Why not use date.toISOString().slice(0, 10) ??? */}
           <Text style={styles.textBase}>{getFormattedDate(date)}</Text>
         </View>
         <View style={styles.costContainer}>
