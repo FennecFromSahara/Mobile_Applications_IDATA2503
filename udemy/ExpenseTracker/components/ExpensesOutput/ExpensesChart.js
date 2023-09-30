@@ -3,6 +3,8 @@ import { View, Dimensions } from 'react-native';
 import { BarChart } from 'react-native-chart-kit';
 import Svg from 'react-native-svg';
 
+// This contains JSX code for the category chart
+
 export default function ExpensesChart({ expenses }) {
   // Calculate total expenses for each category
   const categoryExpenses = {};

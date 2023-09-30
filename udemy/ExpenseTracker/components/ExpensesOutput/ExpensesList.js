@@ -1,6 +1,8 @@
 import { FlatList } from 'react-native';
 import ExpenseItem from './ExpenseItem';
 
+// This contains JSX code for the list of expenses
+
 function renderExpenseItem(itemData) {
   return <ExpenseItem {...itemData.item} />;
 }

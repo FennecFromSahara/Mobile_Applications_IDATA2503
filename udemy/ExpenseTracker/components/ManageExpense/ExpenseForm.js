@@ -5,6 +5,8 @@ import Button from '../UI/Button';
 import { getFormattedDate } from '../../util/date';
 import { GlobalStyles } from '../../constants/styles';
 
+// This contains JSX code for the expense form (adding or editing expense)
+
 export default function ExpenseForm({
   onCancel,
   onSubmit,

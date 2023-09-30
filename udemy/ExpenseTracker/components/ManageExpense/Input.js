@@ -1,6 +1,8 @@
 import { Text, TextInput, View, StyleSheet } from 'react-native';
 import { GlobalStyles } from '../../constants/styles';
 
+// This contains JSX code for a single input element
+
 export default function Input({ label, isValid, style, textInputConfig }) {
   const inputStyles = [styles.input];
 

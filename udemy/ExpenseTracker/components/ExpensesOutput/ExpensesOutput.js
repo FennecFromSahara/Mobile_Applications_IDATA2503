@@ -4,6 +4,8 @@ import ExpensesList from './ExpensesList';
 import { GlobalStyles } from '../../constants/styles';
 import ExpensesChart from './ExpensesChart';
 
+// This contains JSX code for expenses output (category chart, expenses list and expenses summary)
+
 export default function ExpensesOutput({ expenses, periodName, fallbackText }) {
   let content = <Text style={styles.infoText}>{fallbackText}</Text>;
 

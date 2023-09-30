@@ -1,6 +1,8 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { GlobalStyles } from '../../constants/styles';
 
+// This contains JSX code for a summary of all the expenses that are will be shown on the screen
+
 export default function ExpensesSummary({ expenses, periodName }) {
   const expensesSum = expenses.reduce((sum, expense) => {
     return sum + expense.cost;

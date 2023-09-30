@@ -3,6 +3,8 @@ import { GlobalStyles } from '../../constants/styles';
 import { getFormattedDate } from '../../util/date'; //recreate error here by removing {}
 import { useNavigation } from '@react-navigation/native';
 
+// This contains JSX code for a single expense item
+
 export default function ExpenseItem({ id, description, cost, date }) {
   const navigation = useNavigation();
 
