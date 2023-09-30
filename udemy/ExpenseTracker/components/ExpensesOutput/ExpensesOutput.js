@@ -2,12 +2,18 @@ import { View, StyleSheet, Text } from 'react-native';
 import ExpensesSummary from './ExpensesSummary';
 import ExpensesList from './ExpensesList';
 import { GlobalStyles } from '../../constants/styles';
+import ExpensesChart from './ExpensesChart';
 
 export default function ExpensesOutput({ expenses, periodName, fallbackText }) {
   let content = <Text style={styles.infoText}>{fallbackText}</Text>;
 
   if (expenses.length > 0) {
-    content = <ExpensesList expenses={expenses} />;
+    content = (
+      <>
+        <ExpensesChart expenses={expenses} />
+        <ExpensesList expenses={expenses} />
+      </>
+    );
   }
 
   return (

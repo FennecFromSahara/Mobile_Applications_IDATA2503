@@ -6,38 +6,64 @@ const DUMMY_EXPENSES = [
     description: 'A pair of shoes',
     cost: 59.99,
     date: new Date('2021-12-19'),
+    category: 'Food',
   },
   {
     id: 'id2',
     description: 'A pair of trousers',
     cost: 89.29,
     date: new Date('2022-01-05'),
+    category: 'Leisure',
   },
   {
     id: 'id3',
     description: 'Some bananas',
     cost: 5.99,
     date: new Date('2021-12-01'),
+    category: 'Work',
   },
   {
     id: 'id4',
     description: 'A book',
     cost: 14.99,
     date: new Date('2022-02-19'),
+    category: 'Food',
   },
   {
     id: 'id5',
     description: 'Another book',
     cost: 18.59,
     date: new Date('2022-02-18'),
+    category: 'Food',
+  },
+  {
+    id: 'id6',
+    description: 'Another book',
+    cost: 18.59,
+    date: new Date('2022-02-18'),
+    category: 'datgg',
+  },
+  {
+    id: 'id7',
+    description: 'Another book',
+    cost: 18.59,
+    date: new Date('2022-02-18'),
+    category: 'dad',
+  },
+  {
+    id: 'id8',
+    description: 'Another book',
+    cost: 18.59,
+    date: new Date('2023-09-30'),
+    category: 'idk',
   },
 ];
 
 export const ExpensesContext = createContext({
   expenses: [],
-  addExpense: ({ description, cost, date }) => {},
+  addExpense: ({ description, cost, date, category }) => {},
   deleteExpense: (id) => {},
-  updateExpense: (id, { description, cost, date }) => {},
+  updateExpense: (id, { description, cost, date, category }) => {},
 });
 
 function expensesReducer(state, action) {
