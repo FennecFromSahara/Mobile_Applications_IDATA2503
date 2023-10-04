@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Button from '../UI/Button';
 import { getFormattedDate } from '../../util/date';
 import { GlobalStyles } from '../../constants/styles';
+import SelectDropdown from 'react-native-select-dropdown';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 // This contains JSX code for the expense form (adding or editing expense)
 
@@ -30,6 +32,15 @@ export default function ExpenseForm({
     },
   });
 
+  const [categoryInput, setCategoryInput] = useState(
+    editedExpense ? editedExpense.category.toString() : ''
+  );
+
+  const categories = ['Food', 'Travel', 'Leisure', 'Work'];
+
+  //test
+  // console.log(editedExpense.category.toString());
+
   function inputChanged(inputIdentifier, enteredValue) {
     setInputs((currentInputValues) => {
       return {
@@ -39,11 +50,16 @@ export default function ExpenseForm({
     });
   }
 
+  function dropDownChanged(selectedItem, index) {
+    setCategoryInput(selectedItem);
+  }
+
   function submit() {
     const expenseData = {
       cost: +inputs.cost.value, // + converts inputValues.cost from a string to number
       date: new Date(inputs.date.value),
       description: inputs.description.value,
+      category: categoryInput,
     };
 
     const costIsValid = !isNaN(expenseData.cost) && expenseData.cost > 0;
@@ -105,6 +121,36 @@ export default function ExpenseForm({
           value: inputs.description.value,
         }}
       />
+      <SelectDropdown
+        data={categories}
+        // defaultValueByIndex={1}
+        defaultValue={
+          editedExpense ? editedExpense.category.toString() : 'Food'
+        }
+        onSelect={dropDownChanged}
+        // defaultButtonText={'Select country'}
+        buttonTextAfterSelection={(selectedItem, index) => {
+          return selectedItem;
+        }}
+        rowTextForSelection={(item, index) => {
+          return item;
+        }}
+        buttonStyle={styles.dropdownBtnStyle}
+        buttonTextStyle={styles.dropdownBtnTxtStyle}
+        renderDropdownIcon={(isOpened) => {
+          return (
+            <FontAwesome
+              name={isOpened ? 'chevron-up' : 'chevron-down'}
+              color={GlobalStyles.colors.primary700}
+              size={18}
+            />
+          );
+        }}
+        dropdownIconPosition={'right'}
+        dropdownStyle={styles.dropdownDropdownStyle}
+        rowStyle={styles.dropdownRowStyle}
+        rowTextStyle={styles.dropdownRowTxtStyle}
+      />
       {!formIsValid && (
         <Text style={styles.errorText}>
           Invalid input values - please check your entered data
@@ -153,5 +199,30 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: GlobalStyles.colors.error500,
     margin: 8,
+  },
+  dropdownBtnStyle: {
+    width: '80%',
+    height: 50,
+    backgroundColor: GlobalStyles.colors.primary100,
+    borderRadius: 8,
+  },
+  dropdownBtnTxtStyle: {
+    color: GlobalStyles.colors.primary700,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  dropdownDropdownStyle: {
+    backgroundColor: GlobalStyles.colors.primary100,
+    borderBottomLeftRadius: 12,
+    borderBottomRightRadius: 12,
+  },
+  dropdownRowStyle: {
+    backgroundColor: GlobalStyles.colors.primary100,
+    borderBottomColor: '#FFF',
+  },
+  dropdownRowTxtStyle: {
+    color: GlobalStyles.colors.primary700,
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
 });

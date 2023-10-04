@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Dimensions } from 'react-native';
 import { BarChart } from 'react-native-chart-kit';
 import Svg from 'react-native-svg';
+import { GlobalStyles } from '../../constants/styles';
 
 // This contains JSX code for the category chart
 
@@ -27,14 +28,14 @@ export default function ExpensesChart({ expenses }) {
     <View>
       <BarChart
         data={data}
-        width={Dimensions.get('window').width-48} // since parent has 24 horizontal padding, idk if i can do this a better way
+        width={Dimensions.get('window').width - 48} // since parent has 24 horizontal padding, idk if i can do this a better way
         height={200}
         yAxisLabel="$/"
         fromZero={true}
         chartConfig={{
-          backgroundColor: 'white',
-          backgroundGradientFrom: 'white',
-          backgroundGradientTo: 'white',
+          backgroundColor: GlobalStyles.colors.primary50,
+          backgroundGradientFrom: GlobalStyles.colors.primary50,
+          backgroundGradientTo: GlobalStyles.colors.primary50,
           // barPercentage: 0.6,
           decimalPlaces: 2, // Number of decimal places for labels on the Y-axis
           color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
