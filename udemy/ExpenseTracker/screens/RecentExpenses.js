@@ -3,6 +3,8 @@ import ExpensesOutput from '../components/ExpensesOutput/ExpensesOutput';
 import { ExpensesContext } from '../store/expenses-context';
 import { getDateMinusDays } from '../util/date';
 
+// This contains JSX code for the recent expenses screen
+
 export default function RecentExpenses() {
   const expensesContext = useContext(ExpensesContext);
 

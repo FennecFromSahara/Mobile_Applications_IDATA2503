@@ -1,6 +1,8 @@
 import { Pressable, View, Text, StyleSheet } from 'react-native';
 import { GlobalStyles } from '../../constants/styles';
 
+// This contains JSX code for a customizable Button
+
 export default function Button({ children, onPress, mode, style }) {
   return (
     <View style={style}>

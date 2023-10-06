@@ -1,6 +1,6 @@
 # Specifications
 
-You will develop an expense tracker app that allows the user to register their expenses which could be among four different categories: Food, Leisure, Travel and Work.
+Develop an expense tracker app that allows the user to register their expenses which could be among four different categories: Food, Leisure, Travel and Work.
 
 - In the first screen of the app, User will enter in a text box the title of the expense. The heading of this text box is “Title”. Examples of Title could be Daily Groceries or Trip to Milan.
 - Just below the Title text box, the user will enter the amount of the expense. It should have a dollar icon or NOK kr icon followed by a text box.

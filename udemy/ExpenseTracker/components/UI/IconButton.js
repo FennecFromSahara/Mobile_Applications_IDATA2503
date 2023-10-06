@@ -1,6 +1,8 @@
 import { Pressable, View, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+// This contains JSX code for a customizable IconButton
+
 export default function IconButton({ icon, size, color, onPress }) {
   return (
     <Pressable

@@ -121,36 +121,40 @@ export default function ExpenseForm({
           value: inputs.description.value,
         }}
       />
-      <SelectDropdown
-        data={categories}
-        // defaultValueByIndex={1}
-        defaultValue={
-          editedExpense ? editedExpense.category.toString() : 'Food'
-        }
-        onSelect={dropDownChanged}
-        // defaultButtonText={'Select country'}
-        buttonTextAfterSelection={(selectedItem, index) => {
-          return selectedItem;
-        }}
-        rowTextForSelection={(item, index) => {
-          return item;
-        }}
-        buttonStyle={styles.dropdownBtnStyle}
-        buttonTextStyle={styles.dropdownBtnTxtStyle}
-        renderDropdownIcon={(isOpened) => {
-          return (
-            <FontAwesome
-              name={isOpened ? 'chevron-up' : 'chevron-down'}
-              color={GlobalStyles.colors.primary700}
-              size={18}
-            />
-          );
-        }}
-        dropdownIconPosition={'right'}
-        dropdownStyle={styles.dropdownDropdownStyle}
-        rowStyle={styles.dropdownRowStyle}
-        rowTextStyle={styles.dropdownRowTxtStyle}
-      />
+      <View style={styles.dropDownContainer}>
+        <Text style={styles.label}>Category</Text>
+        <SelectDropdown
+          data={categories}
+          // defaultValueByIndex={1}
+          defaultValue={
+            editedExpense ? editedExpense.category.toString() : 'Food'
+          }
+          onSelect={dropDownChanged}
+          // defaultButtonText={'Select country'}
+          buttonTextAfterSelection={(selectedItem, index) => {
+            return selectedItem;
+          }}
+          rowTextForSelection={(item, index) => {
+            return item;
+          }}
+          buttonStyle={styles.dropdownBtnStyle}
+          buttonTextStyle={styles.dropdownBtnTxtStyle}
+          renderDropdownIcon={(isOpened) => {
+            return (
+              <FontAwesome
+                name={isOpened ? 'chevron-up' : 'chevron-down'}
+                color={GlobalStyles.colors.primary700}
+                size={18}
+              />
+            );
+          }}
+          dropdownIconPosition={'right'}
+          dropdownStyle={styles.dropdownDropdownStyle}
+          rowStyle={styles.dropdownRowStyle}
+          rowTextStyle={styles.dropdownRowTxtStyle}
+        />
+      </View>
+
       {!formIsValid && (
         <Text style={styles.errorText}>
           Invalid input values - please check your entered data
@@ -201,7 +205,7 @@ const styles = StyleSheet.create({
     margin: 8,
   },
   dropdownBtnStyle: {
-    width: '80%',
+    width: '50%',
     height: 50,
     backgroundColor: GlobalStyles.colors.primary100,
     borderRadius: 8,
@@ -224,5 +228,14 @@ const styles = StyleSheet.create({
     color: GlobalStyles.colors.primary700,
     textAlign: 'center',
     fontWeight: 'bold',
+  },
+  label: {
+    fontSize: 12,
+    color: GlobalStyles.colors.primary100,
+    marginBottom: 4,
+  },
+  dropDownContainer: {
+    marginVertical: 8,
+    marginHorizontal: 4,
   },
 });

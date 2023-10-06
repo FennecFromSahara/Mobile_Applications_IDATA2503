@@ -6,6 +6,8 @@ import Button from '../components/UI/Button';
 import { ExpensesContext } from '../store/expenses-context';
 import ExpenseForm from '../components/ManageExpense/ExpenseForm';
 
+// This contains JSX code for the expense screen (adding or editing expense)
+
 export default function ManageExpense({ route, navigation }) {
   const expensesContext = useContext(ExpensesContext);
 

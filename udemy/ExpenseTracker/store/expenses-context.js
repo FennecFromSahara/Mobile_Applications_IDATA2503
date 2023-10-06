@@ -41,21 +41,21 @@ const DUMMY_EXPENSES = [
     description: 'Another book',
     cost: 18.59,
     date: new Date('2022-02-18'),
-    category: 'datgg',
+    category: 'Leisure',
   },
   {
     id: 'id7',
     description: 'Another book',
     cost: 18.59,
     date: new Date('2022-02-18'),
-    category: 'dad',
+    category: 'Travel',
   },
   {
     id: 'id8',
     description: 'Another book',
     cost: 18.59,
     date: new Date('2023-09-30'),
-    category: 'idk',
+    category: 'Travel',
   },
 ];
 
