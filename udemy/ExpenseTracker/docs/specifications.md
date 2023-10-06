@@ -16,3 +16,23 @@ Develop an expense tracker app that allows the user to register their expenses w
 - Add one additional feature in the App which you can think apart from the features developed. The additional feature should not be simple like changing colour or adding hello world page but something functional and useful.
 - Submit the documentation which describes App architecture. User stories, specifications and file and folder structure.
 - Well commented files describing the function of files and functions.
+
+# Differences
+
+There were some differences in the udemy courses for flutter versus the udemy courses for react native.
+
+## Here are some of the most notable differences.
+
+- Things that were left out
+  - There was no chart
+  - There was no undo button after deletion
+  - There was no category property for an expense
+- Things that were added
+  - You can edit an expense, here you can also delete an expense
+  - There are two separate screens, one for all expenses and one for recent
+
+# Modifications / extra functionality i made myself
+
+- I felt like the undo button was mostly to restore accidental deletions, since the deletion happens on a whole different screen, it felt unecessary.
+- I added category to an expense
+- I added a bar graph that shows in which categories the money was spent. The graph uses different input data for recent expenses.
