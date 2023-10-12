@@ -1,5 +1,13 @@
 import Category from '../models/category';
+import Filter from '../models/filter';
 import Meal from '../models/meal';
+
+export const FILTERS = [
+  new Filter('f1', 'Gluten-free', 'Only include gluten-free meals.'),
+  new Filter('f2', 'Lactose-free', 'Only include lactose-free meals.'),
+  new Filter('f3', 'Vegetarian', 'Only include vegetarian meals.'),
+  new Filter('f4', 'Vegan', 'Only include vegan meals.'),
+];
 
 export const CATEGORIES = [
   new Category('c1', 'Italian', '#f5428d'),

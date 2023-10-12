@@ -6,12 +6,12 @@ import { MEALS } from '../data/dummy-data';
 import { useSelector } from 'react-redux';
 
 export default function FavoritesScreen() {
-  // const favoriteMealsContext = useContext(FavoritesContext);
-  const favoriteMealIds = useSelector((state) => state.favoriteMeals.ids);
+  const favoriteMealsContext = useContext(FavoritesContext);
+  // const favoriteMealIds = useSelector((state) => state.favoriteMeals.ids);
 
-  const favoriteMeals = MEALS.filter((meal) =>
-    // favoriteMealsContext.ids.includes(meal.id)
-    favoriteMealIds.includes(meal.id)
+  const favoriteMeals = MEALS.filter(
+    (meal) => favoriteMealsContext.ids.includes(meal.id)
+    // favoriteMealIds.includes(meal.id)
   );
 
   if (favoriteMeals.length === 0) {
