@@ -9,3 +9,4 @@
 - Filter functionality
   - Can be accessed by pressing the gear icon in the top right
 - Remove the drawer, and use a tabs instead.
+- Counter for favorites tab
