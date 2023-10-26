@@ -9,13 +9,16 @@ import MealDetailScreen from './screens/MealDetailScreen';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import FavoritesScreen from './screens/FavoritesScreen';
 import { Ionicons } from '@expo/vector-icons';
-import FavoritesContextProvider from './store/context/favorites-context';
+import FavoritesContextProvider, {
+  FavoritesContext,
+} from './store/context/favorites-context';
 import { Provider } from 'react-redux';
 import { store } from './store/redux/store';
 import IconButton from './components/IconButton';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FiltersScreen from './screens/FiltersScreen';
 import FiltersContextProvider from './store/context/filters-context';
+import { useContext } from 'react';
 
 const Stack = createNativeStackNavigator();
 // const Drawer = createDrawerNavigator();
@@ -58,6 +61,7 @@ function DrawerNavigator() {
 }
 
 function TabNavigator() {
+  const favoriteMealsContext = useContext(FavoritesContext);
   return (
     <Tab.Navigator
       initialRouteName="Categories"
@@ -101,7 +105,7 @@ function TabNavigator() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="star" color={color} size={size} />
           ),
-          tabBarBadge: 3,
+          tabBarBadge: favoriteMealsContext.ids.length,
         }}
       />
     </Tab.Navigator>
